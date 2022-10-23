@@ -2,13 +2,13 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { firstValueFrom } from 'rxjs';
-import { specifyCoinList } from 'src/constants/coins';
-import { RedisService } from 'src/redis/services/redis.service';
+import { specifyCoinList } from '../constants/coins';
+import { RedisService } from '../redis/services/redis.service';
 import { AppConfigService } from '../app-config/services/app-config.service';
 
-const prefix = 'jssc:currency';
+export const prefix = 'jssc:currency';
 
-interface ITaskItem {
+export interface ITaskItem {
   asset_id: string;
   name: string;
   type_is_crypto: boolean;
