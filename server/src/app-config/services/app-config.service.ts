@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { RedisService } from '../../redis/services/redis.service';
 
 @Injectable()
 export class AppConfigService {
-  constructor(private readonly redisService: RedisService) {
+  constructor() {
     // Check if the environment variables are set.
     const cases: Array<keyof AppConfigService> = ['redisUrl'];
     for (const c of cases) {
@@ -15,5 +14,13 @@ export class AppConfigService {
 
   get redisUrl(): string {
     return process.env.REDIS_URL;
+  }
+
+  get coinAssetsUrl(): string {
+    return `${process.env.COIN_API_URL}/v1/assets`;
+  }
+
+  get apiKey(): string {
+    return process.env.API_KEY;
   }
 }
