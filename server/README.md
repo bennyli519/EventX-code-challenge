@@ -1,5 +1,5 @@
 ### Currency Server
-
+Node Required: v16+
 ## Getting Started
 
 First, copy the example environment variables file to `.env`:

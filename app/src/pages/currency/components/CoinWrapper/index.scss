@@ -1,0 +1,24 @@
+.coin-wrapper{
+  height: 100px;
+  min-width:200px;
+  padding:10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  h2{
+    margin-bottom:5px;
+  }
+  .price{
+    color:orange;
+    font-weight: bold;
+  }
+  .volume-wrapper{
+    font-size: 12px;
+    margin-top:10px;
+    .name{
+      color: #666;
+    }
+    .num{
+      color: #999;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.currency-page-contaienr{
+  max-width: 1200px;
+  margin: 50px auto;
+  h1{
+    margin:0 0 30px 20px;
+  }
+  .coin-pan{
+    margin: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap:20px;
+    column-gap: 20px;
+  }
+}
