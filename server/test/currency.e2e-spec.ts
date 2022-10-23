@@ -2,9 +2,10 @@ import { HttpStatus } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
+import { RedisService } from '../src/redis/services/redis.service';
 import { AppModule } from '../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('IdentityController (e2e)', () => {
   let app: NestExpressApplication;
 
   beforeEach(async () => {
@@ -13,25 +14,15 @@ describe('AppController (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication<NestExpressApplication>();
-
     await app.init();
+    await app.get(RedisService).client.flushAll();
   });
 
   afterEach(async () => {
     await app.close();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(HttpStatus.OK)
-      .expect('OK');
-  });
-
-  it('/health (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/health')
-      .expect(HttpStatus.OK)
-      .expect('OK');
+  it('/identity (GET)', () => {
+    return request(app.getHttpServer()).get('/currency').expect(HttpStatus.OK);
   });
 });
